@@ -1,7 +1,8 @@
-package com.neostars.githubusers
+package com.neostars.githubusers.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.neostars.githubusers.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

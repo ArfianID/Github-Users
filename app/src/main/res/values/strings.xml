@@ -1,3 +1,124 @@
 <resources>
     <string name="app_name">Github Users</string>
+    <string name="user_name">User Name</string>
+    <string name="full_name">Full Name</string>
+
+    <string-array name="full_name">
+        <item>Fabien Potencier</item>
+        <item>Andrew Nesbitt</item>
+        <item>Taylor Otwell</item>
+        <item>EGOIST</item>
+        <item>Thibault Duplessis</item>
+        <item>Juho Vepsäläinen</item>
+        <item>Nelson</item>
+        <item>Alex Crichton</item>
+        <item>jongleberry</item>
+        <item>Mike McNeil</item>
+        <item>Ben Balter</item>
+        <item>Brent Jackson</item>
+    </string-array>
+
+    <string-array name="user_name">
+        <item>fabpot</item>
+        <item>andrew</item>
+        <item>taylorotwell</item>
+        <item>egoist</item>
+        <item>ornicar</item>
+        <item>bebraw</item>
+        <item>nelsonic</item>
+        <item>alexcrichton</item>
+        <item>jonathanong</item>
+        <item>mikermcneil</item>
+        <item>benbalter</item>
+        <item>jxnblk</item>
+    </string-array>
+
+    <integer-array name="avatar">
+        <item>@drawable/fabpot</item>
+        <item>@drawable/andrew</item>
+        <item>@drawable/taylorotwell</item>
+        <item>@drawable/egoist</item>
+        <item>@drawable/ornicar</item>
+        <item>@drawable/bebraw</item>
+        <item>@drawable/nelsonic</item>
+        <item>@drawable/alexcrichton</item>
+        <item>@drawable/jonathanong</item>
+        <item>@drawable/mikermcneil</item>
+        <item>@drawable/benbalter</item>
+        <item>@drawable/jxnblk</item>
+    </integer-array>
+
+    <string-array name="location">
+        <item>San Francisco</item>
+        <item>Somerset, UK</item>
+        <item>Little Rock, AR</item>
+        <item>Chengdu, China</item>
+        <item>Paris, France</item>
+        <item>Vienna, Austria</item>
+        <item>London</item>
+        <item>San Francisco, CA</item>
+        <item>Los Angeles, CA</item>
+        <item>Austin, TX</item>
+        <item>Washington, DC</item>
+        <item>New York City</item>
+    </string-array>
+
+    <string-array name="repository">
+        <item>70</item>
+        <item>307</item>
+        <item>27</item>
+        <item>84</item>
+        <item>23</item>
+        <item>28</item>
+        <item>57</item>
+        <item>64</item>
+        <item>98</item>
+        <item>35</item>
+    </string-array>
+
+    <string-array name="company">
+        <item>Symfony</item>
+        <item>Octobox</item>
+        <item>Laravel</item>
+        <item>Laine</item>
+        <item>Shapez</item>
+        <item>Sayge</item>
+        <item>Bloom</item>
+        <item>Flint</item>
+        <item>Remedy</item>
+        <item>SINK</item>
+        <item>Foenix</item>
+        <item>Google</item>
+    </string-array>
+
+    <string-array name="followers">
+        <item>12.5k</item>
+        <item>3k</item>
+        <item>26.4k</item>
+        <item>9.3k</item>
+        <item>519</item>
+        <item>792</item>
+        <item>5.7k</item>
+        <item>9k</item>
+        <item>13.5k</item>
+        <item>1.8k</item>
+        <item>4.4k</item>
+        <item>18k</item>
+    </string-array>
+
+    <string-array name="following">
+        <item>0</item>
+        <item>3.2k</item>
+        <item>1</item>
+        <item>24</item>
+        <item>6</item>
+        <item>237</item>
+        <item>446</item>
+        <item>726</item>
+        <item>5</item>
+        <item>67</item>
+        <item>96</item>
+        <item>2</item>
+    </string-array>
+
 </resources>
