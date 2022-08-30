@@ -1,7 +1,27 @@
 <resources>
     <string name="app_name">Github Users</string>
-    <string name="user_name">User Name</string>
     <string name="full_name">Full Name</string>
+    <string name="user_name">User Name</string>
+    <string name="location">Location</string>
+    <string name="repository">Repository:</string>
+    <string name="company">Company:</string>
+    <string name="followers">Followers:</string>
+    <string name="following">Following:</string>
+
+    <integer-array name="avatar">
+        <item>@drawable/fabpot</item>
+        <item>@drawable/andrew</item>
+        <item>@drawable/taylorotwell</item>
+        <item>@drawable/egoist</item>
+        <item>@drawable/ornicar</item>
+        <item>@drawable/bebraw</item>
+        <item>@drawable/nelsonic</item>
+        <item>@drawable/alexcrichton</item>
+        <item>@drawable/jonathanong</item>
+        <item>@drawable/mikermcneil</item>
+        <item>@drawable/benbalter</item>
+        <item>@drawable/jxnblk</item>
+    </integer-array>
 
     <string-array name="full_name">
         <item>Fabien Potencier</item>
@@ -32,21 +52,6 @@
         <item>benbalter</item>
         <item>jxnblk</item>
     </string-array>
-
-    <integer-array name="avatar">
-        <item>@drawable/fabpot</item>
-        <item>@drawable/andrew</item>
-        <item>@drawable/taylorotwell</item>
-        <item>@drawable/egoist</item>
-        <item>@drawable/ornicar</item>
-        <item>@drawable/bebraw</item>
-        <item>@drawable/nelsonic</item>
-        <item>@drawable/alexcrichton</item>
-        <item>@drawable/jonathanong</item>
-        <item>@drawable/mikermcneil</item>
-        <item>@drawable/benbalter</item>
-        <item>@drawable/jxnblk</item>
-    </integer-array>
 
     <string-array name="location">
         <item>San Francisco</item>
