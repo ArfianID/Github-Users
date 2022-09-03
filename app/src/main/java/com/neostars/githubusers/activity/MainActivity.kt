@@ -43,8 +43,8 @@ class MainActivity : AppCompatActivity() {
         get() {
             val avatar = resources.obtainTypedArray(R.array.avatar)
             val fullName = resources.getStringArray(R.array.full_name)
-            val username = resources.getStringArray(R.string.user_name)
-            val location = resources.getStringArray(R.string.location)
+            val username = resources.getStringArray(R.array.user_name)
+            val location = resources.getStringArray(R.array.location)
             val repository = resources.getStringArray(R.array.repository)
             val company = resources.getStringArray(R.array.company)
             val followers = resources.getStringArray(R.array.followers)
