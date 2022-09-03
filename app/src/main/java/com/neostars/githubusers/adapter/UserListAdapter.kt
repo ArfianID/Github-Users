@@ -14,6 +14,12 @@ import com.neostars.githubusers.activity.DetailUser
 import com.neostars.githubusers.model.Users
 
 class UserListAdapter(private val userList: ArrayList<Users>): RecyclerView.Adapter<UserListAdapter.UserViewViewHolder>() {
+    private lateinit var onItemClickCallBack: OnItemClickCallBack
+
+    fun setOnItemClickCallback(onitemClickCallBack: OnItemClickCallBack) {
+        this.onItemClickCallBack = onitemClickCallBack
+    }
+
     class UserViewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var avatar: ImageView = itemView.findViewById(R.id.profile_image)
         var tvFullName: TextView = itemView.findViewById(R.id.full_name)
@@ -39,5 +45,11 @@ class UserListAdapter(private val userList: ArrayList<Users>): RecyclerView.Adap
 
         holder.tvFullName.text = user.fullname
         holder.tvNickname.text = user.username
+
+        holder.itemView.setOnClickListener {onItemClickCallBack.onItemClicked(userList[position])}
+    }
+    
+    interface OnItemClickCallBack {
+        fun onItemClicked(data: Users)
     }
 }

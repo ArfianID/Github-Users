@@ -9,7 +9,7 @@ data class Users(
     val fullname: String,
     val username: String,
     val location: String,
-    val repository: Int,
+    val repository: String,
     val company: String,
     val followers: String,
     val following: String
