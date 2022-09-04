@@ -18,13 +18,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        rvUser = findViewById(R.id.rv_listUser)
-        rvUser.setHasFixedSize(true)
         list.addAll(listUsers)
         showRecyclerList()
     }
 
     private fun showRecyclerList() {
+        rvUser = findViewById(R.id.rv_listUser)
+        rvUser.setHasFixedSize(true)
         rvUser.layoutManager = LinearLayoutManager(this)
         val listUserAdapter = UserListAdapter(list)
         rvUser.adapter = listUserAdapter

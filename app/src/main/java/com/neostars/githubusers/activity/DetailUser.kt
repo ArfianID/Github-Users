@@ -21,7 +21,7 @@ class DetailUser : AppCompatActivity() {
         val setLocation:TextView = findViewById(R.id.set_location)
         val setRepository:TextView = findViewById(R.id.set_repository)
         val setCompany:TextView = findViewById(R.id.set_company)
-        val setFollowers: TextView = findViewById(R.id.set_folowers)
+        val setFollowers: TextView = findViewById(R.id.set_followers)
         val setFollowing: TextView = findViewById(R.id.set_following)
 
         val listUser = intent.getParcelableExtra<Users>(EXTRA_DATA)
@@ -35,7 +35,5 @@ class DetailUser : AppCompatActivity() {
             setFollowers.text = listUser.followers
             setFollowing.text = listUser.following
         }
-
-
     }
 }
