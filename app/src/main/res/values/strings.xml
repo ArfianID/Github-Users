@@ -8,7 +8,7 @@
     <string name="company">Company</string>
     <string name="followers">Followers</string>
     <string name="following">Following</string>
-    <string name="visit">Visit</string>
+    <string name="follow">Follow</string>
 
     <integer-array name="avatar">
         <item>@drawable/fabpot</item>

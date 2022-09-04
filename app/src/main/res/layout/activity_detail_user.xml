@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.DetailUser"
-    android:background="@color/graylight"
+    android:background="@color/white"
+
     android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="350dp"
             android:orientation="vertical">
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/set_avatar"
                 android:layout_marginTop="45dp"
                 android:layout_gravity="center_horizontal"
@@ -37,6 +38,9 @@
             android:layout_width="400dp"
             android:layout_height="120dp"
             android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            app:cardCornerRadius="15dp"
+            android:layout_marginRight="10dp"
             android:layout_marginTop="275dp">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -54,7 +58,6 @@
                         android:layout_height="wrap_content"
                         android:text="@string/repository"
                         android:textSize="20sp"/>
-
                     <TextView
                         android:id="@+id/set_repository"
                         android:layout_width="wrap_content"
@@ -64,7 +67,6 @@
                         android:textColor="#039BE5"
                         android:textSize="20sp"
                         android:textStyle="bold" />
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -180,13 +182,15 @@
         </TableRow>
     </TableLayout>
 
-    <Button
-        android:textColor="#fff"
-        android:background="@drawable/buttonstyle"
-        android:layout_marginTop="35dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/visit"/>
+<!--    Coming soon-->
+<!--    <Button-->
+<!--        android:id="@+id/visit"-->
+<!--        android:textColor="#fff"-->
+<!--        android:background="@drawable/buttonstyle"-->
+<!--        android:layout_marginTop="35dp"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/follow"/>-->
 
 </LinearLayout>
