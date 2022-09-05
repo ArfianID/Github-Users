@@ -1,11 +1,17 @@
 package com.neostars.githubusers.activity
 
+import android.app.Activity
+import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.neostars.githubusers.R
 import com.neostars.githubusers.model.Users
 
@@ -16,7 +22,9 @@ class DetailUser : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
+//        setStatusBarGradient(this)
         setContentView(R.layout.activity_detail_user)
+
 
         val setAvatar: ImageView = findViewById(R.id.set_avatar)
         val setFullName: TextView = findViewById(R.id.set_fullname)
@@ -38,5 +46,14 @@ class DetailUser : AppCompatActivity() {
             setFollowers.text = listUser.followers
             setFollowing.text = listUser.following
         }
+    }
+
+    fun setStatusBarGradient(activity: Activity){
+        val window: Window = activity.window
+        val background = ContextCompat.getDrawable(activity, R.drawable.backgroundgradient)
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+
+        window.statusBarColor = ContextCompat.getColor(activity, android.R.color.transparent)
+        window.setBackgroundDrawable(background)
     }
 }

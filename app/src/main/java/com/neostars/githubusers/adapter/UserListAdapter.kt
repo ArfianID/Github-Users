@@ -40,7 +40,6 @@ class UserListAdapter(private val userList: ArrayList<Users>): RecyclerView.Adap
 
         Glide.with(holder.itemView.context)
             .load(user.avatar)
-            .apply(RequestOptions().override(55, 55))
             .into(holder.avatar)
 
         holder.tvFullName.text = user.fullname

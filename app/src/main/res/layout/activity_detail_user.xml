@@ -10,15 +10,15 @@
     android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="405dp">
+        android:layout_height="435dp">
         <LinearLayout
             android:background="@drawable/backgroundgradient"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="380dp"
             android:orientation="vertical">
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/set_avatar"
-                android:layout_marginTop="45dp"
+                android:layout_marginTop="75dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
@@ -41,7 +41,7 @@
             android:layout_marginLeft="10dp"
             app:cardCornerRadius="15dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="275dp">
+            android:layout_marginTop="305dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
