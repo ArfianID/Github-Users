@@ -7,8 +7,23 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_listUser"
+        android:layout_below="@id/toolbar_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/list_users" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/github_logo_white" />
+    </androidx.appcompat.widget.Toolbar>
 
 </RelativeLayout>
