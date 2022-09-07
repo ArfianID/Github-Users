@@ -7,11 +7,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.Window
+import android.view.WindowInsets
+import android.view.WindowInsetsController
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.ActionBar
 import androidx.core.content.ContextCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import com.neostars.githubusers.R
 import com.neostars.githubusers.model.Users
 
@@ -22,9 +28,8 @@ class DetailUser : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
-//        setStatusBarGradient(this)
+        setStatusBarGradient(this)
         setContentView(R.layout.activity_detail_user)
-
 
         val setAvatar: ImageView = findViewById(R.id.set_avatar)
         val setFullName: TextView = findViewById(R.id.set_fullname)

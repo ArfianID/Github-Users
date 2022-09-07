@@ -14,9 +14,4 @@
 
         <!-- Customize your theme here. -->
     </style>
-
-    <style name="Detail_Theme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="android:statusBarColor">@color/transparent</item>
-        <item name="android:windowTranslucentStatus">true</item>
-    </style>
 </resources>

@@ -10,29 +10,32 @@
     android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="435dp">
+        android:layout_height="405dp">
+
         <LinearLayout
-            android:background="@drawable/backgroundgradient"
             android:layout_width="match_parent"
-            android:layout_height="380dp"
+            android:layout_height="350dp"
+            android:background="@drawable/backgroundgradient"
             android:orientation="vertical">
+
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/set_avatar"
-                android:layout_marginTop="75dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                tools:src="@tools:sample/avatars"/>
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="45dp"
+                tools:src="@tools:sample/avatars" />
+
             <TextView
                 android:id="@+id/set_fullname"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
                 android:text="@string/full_name"
                 android:textColor="#fff"
-                android:textStyle="bold"
-                android:textSize="21sp"/>
+                android:textSize="21sp"
+                android:textStyle="bold" />
         </LinearLayout>
         <androidx.cardview.widget.CardView
             android:layout_width="400dp"
@@ -41,7 +44,7 @@
             android:layout_marginLeft="10dp"
             app:cardCornerRadius="15dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="305dp">
+            android:layout_marginTop="275dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

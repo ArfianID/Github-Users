@@ -20,11 +20,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         list.addAll(listUsers)
-        actionBar()
+        customActionBar()
         showRecyclerList()
     }
 
-    private fun actionBar(){
+    private fun customActionBar(){
         val toolbar: Toolbar = findViewById(R.id.toolbar_home)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
