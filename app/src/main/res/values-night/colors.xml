@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--    Custom theme colors-->
+    <color name="tabRippleColor">#E0E0E0</color>
+
     <!-- Night theme colors -->
-    <color name="colorPrimaryNight">#0D47A1</color>
-    <color name="colorPrimaryDarkNight">#311B92</color>
-    <color name="colorOnPrimaryNight">#171616</color>
+    <color name="colorPrimaryNight">#303030</color>
+    <color name="colorPrimaryDarkNight">#202020</color>
+    <color name="colorOnPrimaryNight">#121212</color>
     <color name="colorSecondaryNight">#7C4DFF</color>
     <color name="colorSecondaryDarkNight">#3700B3</color>
     <color name="colorOnSecondaryNight">#FFFFFF</color>

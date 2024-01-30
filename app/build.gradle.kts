@@ -16,7 +16,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        buildConfigField("String", "KEY", "\"token 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\"")
+        buildConfigField("String", "KEY", "\"token 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\"")
         buildConfigField("String", "BASE_URL", "\"https://api.github.com/\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -32,11 +32,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         viewBinding = true
@@ -68,6 +68,6 @@ dependencies {
     implementation ("androidx.room:room-ktx:2.6.1")
     ksp("androidx.room:room-compiler:2.6.1")
     implementation("androidx.datastore:datastore-preferences:1.0.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 }

@@ -1,16 +1,34 @@
 <resources>
     <!-- Night theme. -->
-    <style name="Theme.MyApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.MyApp.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#3949AB</item>
+        <item name="colorPrimary">@color/colorPrimaryNight</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryDarkNight</item>
         <item name="colorOnPrimary">@color/colorOnPrimaryNight</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/colorSecondaryNight</item>
         <item name="colorSecondaryVariant">@color/colorSecondaryDarkNight</item>
         <item name="colorOnSecondary">@color/colorOnSecondaryNight</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
+
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="android:statusBarColor" >@color/colorPrimaryDarkNight</item>
+        <item name="toolbarColor">@color/colorOnPrimaryNight</item>
+        <!-- Customize other theme attributes. -->
+    </style>
+
+    <style name="Theme.MyApp.ActionBar" parent="Theme.MaterialComponents.DayNight">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimaryNight</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryDarkNight</item>
+        <item name="colorOnPrimary">@color/colorOnPrimaryNight</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorSecondaryNight</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryDarkNight</item>
+        <item name="colorOnSecondary">@color/colorOnSecondaryNight</item>
+
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="android:statusBarColor" >@color/colorPrimaryDarkNight</item>
+        <item name="toolbarColor">@color/colorOnPrimaryNight</item>
         <!-- Customize other theme attributes. -->
     </style>
 

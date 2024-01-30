@@ -4,6 +4,9 @@ import android.app.Activity
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
+import android.graphics.BlendMode
+import android.graphics.BlendModeColorFilter
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -17,6 +20,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SearchView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.arfian.githubuser.R
@@ -43,7 +47,6 @@ class MainActivity : AppCompatActivity() {
     }
     private lateinit var userAdapter: UserAdapter
 
-
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,19 +54,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
 
-        // Observe dark mode
         observeDarkMode()
-        // Initialize RecyclerView and Adapter
         setupRecyclerView()
-        // Searching in search view
         startSearch()
-        // Observing user
         mainViewModel.listUser.observe(this) { handleResult(it) }
-
     }
 
+    @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
+        setIconColorBasedOnTheme(menu)
         return true
     }
 
@@ -73,12 +73,10 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this, FavoriteListActivity::class.java))
                 true
             }
-
             R.id.action_settings -> {
                 startActivity(Intent(this, SettingsActivity::class.java))
                 true
             }
-
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -87,14 +85,8 @@ class MainActivity : AppCompatActivity() {
         userAdapter = UserAdapter()
         binding.rvUsers.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
-            addItemDecoration(
-                DividerItemDecoration(
-                    this@MainActivity,
-                    LinearLayoutManager(this@MainActivity).orientation
-                )
-            )
+            addItemDecoration(DividerItemDecoration(this@MainActivity, LinearLayoutManager(this@MainActivity).orientation))
             adapter = userAdapter
-
             userAdapter.setOnItemClickCallback(object : UserAdapter.OnItemClickCallback {
                 override fun onItemClicked(user: UserItem) {
                     Intent(this@MainActivity, DetailUserActivity::class.java).apply {
@@ -108,7 +100,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun startSearch() {
         val searchManager = getSystemService(SEARCH_SERVICE) as SearchManager
-
         binding.searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -119,7 +110,6 @@ class MainActivity : AppCompatActivity() {
                 }
                 return true
             }
-
             override fun onQueryTextChange(newText: String?): Boolean {
                 return false
             }
@@ -133,49 +123,55 @@ class MainActivity : AppCompatActivity() {
             }
             is Result.Success -> {
                 showLoading(false)
-                updateData(result.data)
+                userAdapter.submitList(result.data)
             }
             is Result.Error -> {
                 showLoading(false)
-                showErrorMessage(result.exception.message)
+                Toast.makeText(this, result.exception.message, Toast.LENGTH_SHORT).show()
             }
         }
-    }
-
-    private fun updateData(users: List<UserItem>) {
-        userAdapter.submitList(users)
     }
 
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
-    private fun showErrorMessage(it: String?) {
-        if (!it.isNullOrEmpty()) {
-            Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
-        }
-    }
-
     private fun hideKeyboard(activity: Activity) {
-        val inputMethodManager =
-            activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        val currentFocusedView = activity.currentFocus
-        currentFocusedView?.let {
-            inputMethodManager.hideSoftInputFromWindow(
-                it.windowToken,
-                InputMethodManager.HIDE_NOT_ALWAYS
-            )
+        val inputMethodManager = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        activity.currentFocus?.let {
+            inputMethodManager.hideSoftInputFromWindow(it.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
         }
     }
 
     private fun observeDarkMode() {
-        settingsViewModel.isDarkMode.observe(this) { isDarkMode ->
-            if (isDarkMode) {
+        settingsViewModel.getDarkMode().observe(this) { isDarkModeActive ->
+            if (isDarkModeActive) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                binding.ivGithubIcon.setImageResource(R.mipmap.ic_github_white)
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                binding.ivGithubIcon.setImageResource(R.mipmap.ic_github_dark)
             }
-            Log.d("MainActivity", "Dark mode applied: $isDarkMode")
+            Log.d("MainActivity", "Dark mode applied: $isDarkModeActive")
         }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.Q)
+    private fun setIconColorBasedOnTheme(menu: Menu?) {
+        when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+            Configuration.UI_MODE_NIGHT_YES -> {
+                setIconColor(menu, android.R.color.white)
+            }
+            Configuration.UI_MODE_NIGHT_NO, Configuration.UI_MODE_NIGHT_UNDEFINED -> {
+                setIconColor(menu, android.R.color.black)
+            }
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.Q)
+    private fun setIconColor(menu: Menu?, color: Int) {
+        val colorFilter = BlendModeColorFilter(ContextCompat.getColor(this, color), BlendMode.SRC_IN)
+        menu?.findItem(R.id.action_favorite)?.icon?.colorFilter = colorFilter
+        menu?.findItem(R.id.action_settings)?.icon?.colorFilter = colorFilter
     }
 }

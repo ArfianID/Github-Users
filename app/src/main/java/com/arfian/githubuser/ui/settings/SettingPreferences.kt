@@ -1,43 +1,42 @@
 package com.arfian.githubuser.ui.settings
 
 import android.content.Context
-import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.preferencesDataStore
-import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
 class SettingPreferences private constructor(private val dataStore: DataStore<Preferences>) {
+    private val darkModeKey = booleanPreferencesKey("dark_mode")
+
+    suspend fun saveDarkMode(isDarkModeActive: Boolean) {
+        dataStore.edit { preferences ->
+            preferences[darkModeKey] = isDarkModeActive
+        }
+    }
+
+    fun getDarkMode(): Flow<Boolean> {
+        return dataStore.data.map { preferences ->
+            preferences[darkModeKey] ?: false
+        }
+
+    }
+
     companion object {
         @Volatile
-        private var instance: SettingPreferences? = null
+        private var INSTANCE: SettingPreferences? = null
 
-        fun getInstance(dataStore: DataStore<Preferences>): SettingPreferences =
-            instance ?: synchronized(this) {
-                instance ?: SettingPreferences(dataStore).apply {
-                    instance = this
-                }
+        fun getInstance(dataStore: DataStore<Preferences>): SettingPreferences {
+            return INSTANCE ?: synchronized(this) {
+                val instance = SettingPreferences(dataStore)
+                INSTANCE = instance
+                instance
             }
-
-        // Define a key for the dark mode preference
-        val DARK_MODE_KEY = booleanPreferencesKey("dark_mode")
-    }
-
-    suspend fun saveDarkMode(isDarkMode: Boolean) {
-        dataStore.edit { settings ->
-            settings[DARK_MODE_KEY] = isDarkMode
         }
-        Log.d("SettingPreferences", "Dark mode saved: $isDarkMode")
-    }
-
-    suspend fun getDarkMode(): Boolean {
-        val preferences = dataStore.data.first()
-        val isDarkMode = preferences[DARK_MODE_KEY] ?: false
-        Log.d("SettingPreferences", "Dark mode retrieved: $isDarkMode")
-        return isDarkMode
     }
 }

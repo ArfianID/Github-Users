@@ -166,7 +166,7 @@
         app:tabMode="fixed"
         app:tabRippleColor="@color/tabRippleColor"
         app:tabSelectedTextColor="@color/colorSecondaryNight"
-        app:tabTextColor="@color/colorOnSecondaryNight"
+        app:tabTextColor="@color/colorOnSecondary"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <androidx.viewpager2.widget.ViewPager2
