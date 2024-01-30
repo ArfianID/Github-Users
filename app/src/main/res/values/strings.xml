@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Github User</string>
+    <string name="search_user">Search User</string>
+    <string name="github_icon">Github Icon</string>
+    <string name="following">following</string>
+    <string name="followers">followers</string>
+    <string name="repository"> repository</string>
+    <string name="followers_tab">Followers</string>
+    <string name="following_tab">Following</string>
+    <string name="tv_bio">bio</string>
+    <string name="detail_user">Detail User</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="floating_fab_favorite">Floating fab favorite</string>
+    <string name="favorite">Favorite</string>
+    <string name="settings">Settings</string>
+    <string name="favorite_users_title">Favorite User</string>
+    <string name="share">Share\n</string>
+    <string name="data_not_available">Data is not available yet</string>
+    <string name="share_text">Hi, check out this github user!</string>
+    <string name="added_to_favorite">Added to favorite</string>
+    <string name="deleted_from_favorite">Deleted from favorite</string>
+    <string name="dark_mode">Dark Mode \t</string>
+    <string name="light_mode">Light Mode</string>
+</resources>
