@@ -33,7 +33,7 @@
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             app:iconifiedByDefault="false"
             android:background="@drawable/search_view_rounded"
             app:queryHint="@string/search"
@@ -62,7 +62,7 @@
         android:id="@+id/tv_prompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/tv_prompt"
+        android:text="@string/tv_prompt_main"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

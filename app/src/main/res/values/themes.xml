@@ -9,7 +9,7 @@
         <item name="colorSecondary">@color/colorSecondary</item>
         <item name="colorSecondaryVariant">@color/colorSecondaryDark</item>
         <item name="colorOnSecondary">@color/colorOnSecondary</item>
-        <!-- Status bar color. -->
+
         <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
         <item name="toolbarColor">@color/colorPrimary</item>
         <!-- Customize other theme attributes. -->

@@ -17,7 +17,6 @@ class SectionPagerAdapter(activity: AppCompatActivity, data: Bundle): FragmentSt
     }
 
     override fun createFragment(position: Int): Fragment {
-//        @StringRes val TAB_TITLES = intArrayOf(R.string.followers_tab, R.string.following_tab)
 
         var fragment: Fragment? = null
         when (position) {

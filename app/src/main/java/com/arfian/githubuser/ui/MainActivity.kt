@@ -125,7 +125,8 @@ class MainActivity : AppCompatActivity() {
             is Result.Success -> {
                 showLoading(false)
                 if (result.data.isEmpty()) {
-                    Toast.makeText(this, "No user data found", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this, resources.getString(R.string.no_user_data_found), Toast.LENGTH_SHORT).show()
                     binding.tvPrompt.visibility = View.GONE
                 } else {
                     userAdapter.submitList(result.data)

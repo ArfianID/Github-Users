@@ -59,7 +59,6 @@ class FollowingFragment : Fragment() {
             adapter = this@FollowingFragment.adapter
         }
 
-        // Set the OnItemClickCallback on the adapter
         adapter.setOnItemClickCallback(object : UserAdapter.OnItemClickCallback {
             override fun onItemClicked(user: UserItem) {
                 val intent = Intent(context, DetailUserActivity::class.java).apply {

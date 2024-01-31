@@ -21,5 +21,6 @@
     <string name="deleted_from_favorite">Deleted from favorite</string>
     <string name="dark_mode">Dark Mode \t</string>
     <string name="light_mode">Light Mode</string>
-    <string name="tv_prompt">There are no user data here, \nplease do a search to see the user data!</string>
+    <string name="tv_prompt_main">There are no user data here, \nplease do a search to see the user data!</string>
+    <string name="no_user_data_found">No user data found</string>
 </resources>
