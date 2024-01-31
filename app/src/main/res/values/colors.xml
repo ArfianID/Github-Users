@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources >
 <!--    Custom theme colors-->
-    <color name="colorBackground">#4242429C</color>
+    <color name="colorBackground">#1F1F2C</color>
     <color name="tabRippleColor">#E0E0E0</color>
 
     <!-- Day theme colors -->

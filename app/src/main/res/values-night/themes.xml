@@ -32,4 +32,14 @@
         <!-- Customize other theme attributes. -->
     </style>
 
+    <style name="TabLayoutStyle" parent="Widget.MaterialComponents.TabLayout">
+        <item name="tabIndicatorColor">@color/colorSecondaryNight</item>
+        <item name="tabIndicatorHeight">4dp</item>
+        <item name="tabSelectedTextColor">@color/colorSecondaryNight</item>
+        <item name="background">?attr/toolbarColor</item>
+        <item name="tabTextColor">@color/colorOnSecondaryNight</item>
+        <item name="tabRippleColor">@color/tabRippleColor</item>
+        <item name="tabMode">fixed</item>
+        <item name="tabGravity">fill</item>
+    </style>
 </resources>

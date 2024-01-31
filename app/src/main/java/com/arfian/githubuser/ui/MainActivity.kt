@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
+        binding.tvPrompt.visibility = View.VISIBLE
 
         observeDarkMode()
         setupRecyclerView()
@@ -123,11 +124,18 @@ class MainActivity : AppCompatActivity() {
             }
             is Result.Success -> {
                 showLoading(false)
-                userAdapter.submitList(result.data)
+                if (result.data.isEmpty()) {
+                    Toast.makeText(this, "No user data found", Toast.LENGTH_SHORT).show()
+                    binding.tvPrompt.visibility = View.GONE
+                } else {
+                    userAdapter.submitList(result.data)
+                    binding.tvPrompt.visibility = View.GONE
+                }
             }
             is Result.Error -> {
                 showLoading(false)
                 Toast.makeText(this, result.exception.message, Toast.LENGTH_SHORT).show()
+                binding.tvPrompt.visibility = View.GONE
             }
         }
     }
