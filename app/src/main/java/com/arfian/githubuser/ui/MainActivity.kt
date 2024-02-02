@@ -53,7 +53,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
-        binding.tvPrompt.visibility = View.VISIBLE
 
         observeDarkMode()
         setupRecyclerView()
@@ -125,18 +124,19 @@ class MainActivity : AppCompatActivity() {
             is Result.Success -> {
                 showLoading(false)
                 if (result.data.isEmpty()) {
-                    Toast.makeText(
-                        this, resources.getString(R.string.no_user_data_found), Toast.LENGTH_SHORT).show()
-                    binding.tvPrompt.visibility = View.GONE
+                    userAdapter.submitList(emptyList())
+                    showPromptAndEmptyList(true)
+                    Toast.makeText(this, resources.getString(R.string.no_user_data_found), Toast.LENGTH_SHORT).show()
                 } else {
+                    showPromptAndEmptyList(false)
                     userAdapter.submitList(result.data)
-                    binding.tvPrompt.visibility = View.GONE
                 }
             }
             is Result.Error -> {
+                userAdapter.submitList(emptyList())
+                showPromptAndEmptyList(true)
                 showLoading(false)
                 Toast.makeText(this, result.exception.message, Toast.LENGTH_SHORT).show()
-                binding.tvPrompt.visibility = View.GONE
             }
         }
     }
@@ -163,6 +163,11 @@ class MainActivity : AppCompatActivity() {
             }
             Log.d("MainActivity", "Dark mode applied: $isDarkModeActive")
         }
+    }
+
+    private fun showPromptAndEmptyList(isVisible: Boolean) {
+        binding.tvPromptMain.visibility = if (isVisible) View.VISIBLE else View.GONE
+        binding.ivEmptyList.visibility = if (isVisible) View.VISIBLE else View.GONE
     }
 
     @RequiresApi(Build.VERSION_CODES.Q)

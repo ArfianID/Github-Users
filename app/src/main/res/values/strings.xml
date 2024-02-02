@@ -13,7 +13,7 @@
     <string name="floating_fab_favorite">Floating fab favorite</string>
     <string name="favorite">Favorite</string>
     <string name="settings">Settings</string>
-    <string name="favorite_users_title">Favorite User</string>
+    <string name="favorite_list_title">Favorite List</string>
     <string name="share">Share\n</string>
     <string name="data_not_available">Data is not available yet</string>
     <string name="share_text">Hi, check out this github user!</string>
@@ -21,6 +21,10 @@
     <string name="deleted_from_favorite">Deleted from favorite</string>
     <string name="dark_mode">Dark Mode \t</string>
     <string name="light_mode">Light Mode</string>
-    <string name="tv_prompt_main">There are no user data here, \nplease do a search to see the user data!</string>
+    <string name="tv_prompt_main">There are no user data here, \nplease do a search first!</string>
+    <string name="tv_prompt_favorite">Favorite list is empty, \nplease add some!</string>
     <string name="no_user_data_found">No user data found</string>
+    <string name="empty_list_icon">Empty list icon</string>
+    <string name="favorite_list_empty_icon">Favorite list empty icon</string>
+    <string name="follower_following_tab">Followers following tab</string>
 </resources>

@@ -42,7 +42,7 @@ class FavoriteListActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
-        supportActionBar?.title = getString(R.string.favorite_users_title)
+        supportActionBar?.title = getString(R.string.favorite_list_title)
     }
 
     private fun setupRecyclerView() {
@@ -72,12 +72,15 @@ class FavoriteListActivity : AppCompatActivity() {
     private fun setupViewModelObservers() {
         favoriteViewModel.listUser.observe(this) { result ->
             when (result) {
-                is Result.Loading -> showLoading(true)
+                is Result.Loading ->
+                    showLoading(true)
                 is Result.Success -> {
+                    showPromptAndEmptyList(result.data.isEmpty())
                     showLoading(false)
                     favoriteListAdapter.submitList(result.data)
                 }
                 is Result.Error -> {
+                    showPromptAndEmptyList(true)
                     showLoading(false)
                     Result.Error(result.exception)
                 }
@@ -87,6 +90,11 @@ class FavoriteListActivity : AppCompatActivity() {
 
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
+
+    private fun showPromptAndEmptyList(isVisible: Boolean) {
+        binding.tvPromptFavorite.visibility = if (isVisible) View.VISIBLE else View.GONE
+        binding.ivEmptyFavorite.visibility = if (isVisible) View.VISIBLE else View.GONE
     }
 
     override fun onSupportNavigateUp(): Boolean {

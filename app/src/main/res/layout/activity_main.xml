@@ -6,15 +6,14 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:focusableInTouchMode="true"
-    android:id="@+id/mainLayout"
     tools:context=".ui.MainActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
-        android:background="?attr/toolbarColor"
         android:layout_width="0dp"
-        android:paddingTop="8dp"
         android:layout_height="wrap_content"
+        android:background="?attr/toolbarColor"
+        android:paddingTop="8dp"
         android:paddingBottom="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,9 +23,9 @@
             android:id="@+id/iv_github_icon"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:layout_marginEnd="16dp"
             android:contentDescription="@string/github_icon"
             android:src="@mipmap/ic_github_dark"
-            android:layout_marginEnd="16dp"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="16dp" />
 
@@ -34,15 +33,14 @@
             android:id="@+id/searchView"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            app:iconifiedByDefault="false"
-            android:background="@drawable/search_view_rounded"
-            app:queryHint="@string/search"
             android:layout_marginEnd="16dp"
+            android:background="@drawable/search_view_rounded"
+            app:iconifiedByDefault="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-        </androidx.appcompat.widget.SearchView>
+            app:layout_constraintTop_toTopOf="parent"
+            app:queryHint="@string/search"/>
 
     </com.google.android.material.appbar.MaterialToolbar>
 
@@ -58,17 +56,6 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
-    <TextView
-        android:id="@+id/tv_prompt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_prompt_main"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_users"
         android:layout_width="0dp"
@@ -76,9 +63,42 @@
         android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="1.0"
         tools:itemCount="10"
         tools:listitem="@layout/user_item" />
+
+    <ImageView
+        android:id="@+id/iv_empty_list"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@mipmap/ic_empty_list"
+        android:contentDescription="@string/empty_list_icon" />
+
+    <TextView
+        android:id="@+id/tv_prompt_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/tv_prompt_main"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/iv_empty_list"
+        app:layout_constraintStart_toStartOf="@+id/iv_empty_list"
+        app:layout_constraintTop_toBottomOf="@+id/iv_empty_list" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
